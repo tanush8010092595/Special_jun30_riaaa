@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Pranaya 💖</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6e7,#ffe9f3,#fff5fa);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+overflow-x:hidden;
+}
+
+.card{
+max-width:450px;
+width:100%;
+background:white;
+padding:25px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+animation:fadeIn 1.2s ease;
+position:relative;
+z-index:10;
+}
+
+.profile{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid #ff8fc0;
+box-shadow:0 0 25px rgba(255,105,180,.4);
+}
+
+h1{
+margin-top:15px;
+color:#ff4f95;
+font-size:32px;
+}
+
+.message{
+margin-top:20px;
+font-size:18px;
+line-height:1.8;
+color:#555;
+text-align:left;
+}
+
+.btn{
+margin-top:25px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:#ff4f95;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(255,79,149,.4);
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+#memory{
+display:none;
+margin-top:25px;
+animation:fadeIn 1s ease;
+}
+
+#memory img{
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.heart{
+position:fixed;
+font-size:24px;
+animation:float 8s linear infinite;
+opacity:.7;
+z-index:1;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-120px);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="pranaya.jpg" class="profile">
+
+<h1>🎂 Happy Birthday Pranaya 💖</h1>
+
+<div class="message">
+
+🌷 Dear meri pyari saheli ,<br><br>
+
+Wishing You A Very Happy Birthday Dear Riaa... ❤️🎉🎂<br><br>
+
+U are माझ्या आयुष्यातील सगळ्यात जवळची जिवलग friend... ❤️🖇️<br><br>
+
+तुझ्या या special day ला मनापासून wish करायचं आहे की तुझ्या आयुष्यात नेहमी happiness, success, good health आणि endless smiles असू देत... 💫<br><br>
+
+College बदललं, वेळ बदलली, परिस्थिती बदलली, आणि कदाचित परिस्थितीनुसार काही misunderstandings सुद्धा झाल्या असतील... त्या misunderstandings हसून-रडून निघून पण गेल्या... मात्र आयुष्यात असलेली तुझी place means irreplaceable आहे, होती आणि पुढे सुद्धा राहणार... 🙂🫂<br><br>
+
+Lifetime bondच करून घेतलाय... 😂🖇️♾️<br><br>
+
+Letter मध्ये use केलेल्या अतरंगी-सतरंगी language सारखीच आपल्या friendship च्या #Trio ची दुनिया कायम अशीच रंगीत, अतरंगी, सतरंगी आणि memories ने भरलेली असेल... 🔝🧿❤️<br><br>
+
+आणि हो... #Trio + Pooji 😜 हा chapter विसरून नाही चालणार😂🖇️♾️
+
+प्रत्येक वेळी जतवणं ठीक नाही वाटत, पण कधी कधी काही bonds आपल्यासाठी काय आहेत हे सांगणं गरजेचं असत... 😅<br><br>
+
+Purely Thank You For All The Beautiful Memories Ever!!! 🤍<br><br>
+
+Once Again,<br><br>
+
+🎂 Happy Birthday Dear Riaa ❤️🎂<br><br>
+
+Stay Blessed 🌷<br>
+Keep Smiling 😊<br>
+Keep Shining ✨<br><br>
+
+♾️💖
+</div>
+
+<button class="btn" onclick="showMemory()">
+🎁 Open Special Memory
+</button>
+
+<div id="memory">
+<img src="memory.jpg">
+</div>
+
+</div>
+
+<script>
+
+function showMemory(){
+document.getElementById("memory").style.display="block";
+}
+
+for(let i=0;i<25;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
