@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday Ria 💖</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffd6e8,#ffeef7);overflow-x:hidden}
+#loading{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ffd6e8,#fff5fb);z-index:999}
+.envelope{width:230px;height:160px;position:relative;cursor:pointer;transition:1s}
+.env-body{position:absolute;bottom:0;width:100%;height:110px;background:#ff5b8f;border-radius:0 0 15px 15px}
+.env-top{position:absolute;top:0;border-left:115px solid transparent;border-right:115px solid transparent;border-top:80px solid #ff8bb4;transform-origin:top;transition:1s;z-index:2}
+.letter-preview{position:absolute;left:50%;top:50px;transform:translateX(-50%);font-size:45px;z-index:1}
+.envelope.open .env-top{transform:rotateX(180deg)}
+.envelope.open{transform:scale(1.25);opacity:0}
+.tap{margin-top:30px;color:#ff2f74;font-weight:bold;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.35}}
+#main{display:none;padding:25px}
+.card{max-width:700px;margin:auto;background:#fff;border-radius:25px;padding:22px;box-shadow:0 15px 35px rgba(0,0,0,.18);opacity:0;transform:translateY(100px) scale(.8) rotateX(50deg);transition:1.2s}
+.card.show{opacity:1;transform:none}
+.profile,#memory img{width:100%;border-radius:18px}
+h1{text-align:center;color:#ff3f84;margin:15px 0}
+.message{line-height:1.9;font-size:18px;color:#444}
+.btn{margin:20px auto;display:block;padding:14px 24px;border:none;border-radius:30px;background:#ff4b8b;color:#fff;font-size:18px;cursor:pointer}
+#memory{display:none;margin-top:20px}
+.heart{position:fixed;font-size:24px;animation:float 8s linear infinite;opacity:.75}
+@keyframes float{from{transform:translateY(110vh)}to{transform:translateY(-120px)}}
+</style>
+</head>
+<body>
+
+<div id="loading">
+<div class="envelope" onclick="openLetter()">
+<div class="env-top"></div>
+<div class="env-body"></div>
+<div class="letter-preview">💌</div>
+</div>
+<div class="tap">Tap the Envelope ❤️</div>
+</div>
+
+<div id="main">
+<div class="card" id="card">
+<img src="mem.jpg" class="profile">
+<h1>🎂 Happy Birthday riyeee🩷</h1>
+<div class="message">
+🌷 Dear meri pyari saheli🩷 ,<br><br>
+
+Wishing You A Very Happeist Birthday Dear Riaa... ❤️🎉🎂<br><br>
+
+U are माझ्या आयुष्यातील सगळ्यात जवळची जिवलग friend... ❤️🖇️<br><br>
+
+तुझ्या this special day ला मनापासून wish करायचं आहे की तुझ्या आयुष्यात नेहमी happiness, success, good health आणि endless smiles असू देत... 💫<br><br>
+
+College बदललं, वेळ बदलली, परिस्थिती बदलली, आणि कदाचित परिस्थितीनुसार काही misunderstandings सुद्धा झाल्या असतील... त्या misunderstandings हसून-रडून निघून पण गेल्या... मात्र आयुष्यात असलेली तुझी place means irreplaceable आहे, होती आणि पुढे सुद्धा राहणार... 🙂🫂<br><br>
+
+Lifetime bondच करून घेतलाय... 😂🖇️♾️<br><br>
+
+Letter मध्ये use केलेल्या अतरंगी-सतरंगी language सारखीच आपल्या friendship च्या #Trio ची दुनिया कायम अशीच रंगीत, अतरंगी, सतरंगी आणि memories ने भरलेली असेल... 🔝🧿❤️<br><br>
+
+आणि हो... #Trio + Pooji 😜 हा chapter विसरून नाही चालणार😂🖇️♾️<br><br>
+
+प्रत्येक वेळी जतवणं ठीक नाही वाटत, पण कधी कधी काही bonds आपल्यासाठी काय आहेत हे सांगणं गरजेचं असत... 😅<br><br>
+
+Purely Thank You For All The Beautiful Memories Ever!!! 🤍<br><br>
+
+Once Again,<br><br>
+
+🎂 Happy Birthday Dear Riaa ❤️🎂<br><br>
+
+Stay Blessed 🌷<br>
+Keep Smiling (Laughing🤪)😊<br>
+Keep Shining ✨<br><br>
+
+♾️💖
+</div>
+
+<button class="btn" onclick="document.getElementById('memory').style.display='block'">🎁 Open Special Memory</button>
+
+<div id="memory">
+<img src="memory.jpg">
+</div>
+</div>
+</div>
+
+<script>
+function openLetter(){
+document.querySelector(".envelope").classList.add("open");
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+document.getElementById("main").style.display="block";
+setTimeout(()=>document.getElementById("card").classList.add("show"),100);
+},1000);
+}
+for(let i=0;i<35;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML=Math.random()>0.5?"💖":"💕";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(5+Math.random()*5)+"s";
+h.style.fontSize=(18+Math.random()*18)+"px";
+document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
