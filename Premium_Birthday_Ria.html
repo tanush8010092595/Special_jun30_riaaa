@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday 💖</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(135deg,#ffd9ea,#fff5fb);overflow-x:hidden}
+#loading{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ffd9ea,#fff);z-index:99}
+.envelope{width:240px;height:160px;position:relative;cursor:pointer;perspective:900px}
+.body{position:absolute;bottom:0;width:100%;height:110px;background:#ff5f97;border-radius:0 0 16px 16px}
+.flap{position:absolute;top:0;border-left:120px solid transparent;border-right:120px solid transparent;border-top:82px solid #ff8fba;transform-origin:top;transition:1s}
+.envelope.open .flap{transform:rotateX(180deg)}
+.paper{position:absolute;left:15px;right:15px;bottom:10px;height:120px;background:#fff;border-radius:8px;transition:1s}
+.envelope.open .paper{transform:translateY(-120px)}
+#main{display:none;padding:20px}
+.card{max-width:700px;margin:auto;background:#fff;border-radius:24px;padding:20px;box-shadow:0 12px 35px rgba(0,0,0,.2);animation:pop .9s}
+@keyframes pop{from{opacity:0;transform:scale(.7) translateY(80px)}to{opacity:1;transform:none}}
+.profile,#memory img{width:100%;border-radius:18px}
+.sparkle,.petal,.heart,.fire{position:fixed;pointer-events:none}
+.sparkle{color:#fff8a6;animation:twinkle 3s linear infinite}
+@keyframes twinkle{50%{opacity:.2;transform:scale(.4)}}
+.petal{animation:fall 8s linear infinite}
+.heart{animation:fall 10s linear infinite}
+.fire{animation:boom 1.2s ease-out forwards;font-size:28px}
+@keyframes fall{from{transform:translateY(-10vh)}to{transform:translateY(110vh)}}
+@keyframes boom{from{opacity:1;transform:scale(.2)}to{opacity:0;transform:scale(2)}}
+button{padding:12px 20px;border:none;border-radius:30px;background:#ff4d8d;color:#fff;font-size:18px;display:block;margin:20px auto}
+#memory{display:none}
+</style>
+</head>
+<body>
+<div id="loading">
+<div class="envelope" onclick="openLetter()">
+<div class="flap"></div><div class="body"></div><div class="paper"></div>
+</div>
+<p>Tap the Envelope ❤️</p>
+</div>
+<div id="main">
+<div class="card">
+<img class="profile" src="mem.jpg">
+<h1>🎂 Happy Birthday riyeee🩷</h1>
+<div>
+🌷 Dear meri pyari saheli🩷 ...<br><br>
+<b>Paste your full birthday letter here (same message as before).</b>
+</div>
+<button onclick="document.getElementById('memory').style.display='block'">🎁 Open Special Memory</button>
+<div id="memory"><img src="memory.jpg"></div>
+<p style="text-align:center;color:#777"><b>Music:</b> Add your own licensed MP3 (for example <code>music.mp3</code>) and replace the placeholder below.</p>
+<audio id="bgm" controls loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+</div>
+</div>
+<script>
+function openLetter(){
+document.querySelector('.envelope').classList.add('open');
+setTimeout(()=>{
+loading.style.display='none';
+main.style.display='block';
+document.getElementById('bgm').play().catch(()=>{});
+fireworks();
+},1100);
+}
+for(let i=0;i<60;i++){
+let s=document.createElement('div');
+s.className='sparkle';s.innerHTML='✨';
+s.style.left=Math.random()*100+'vw';
+s.style.top=Math.random()*100+'vh';
+s.style.animationDelay=(Math.random()*3)+'s';
+document.body.appendChild(s);
+}
+for(let i=0;i<25;i++){
+let p=document.createElement('div');
+p.className='petal';p.innerHTML='🌸';
+p.style.left=Math.random()*100+'vw';
+p.style.animationDuration=(5+Math.random()*5)+'s';
+document.body.appendChild(p);
+}
+function fireworks(){
+for(let i=0;i<50;i++){
+let f=document.createElement('div');
+f.className='fire';f.innerHTML=['🎆','✨','💖'][i%3];
+f.style.left=(20+Math.random()*60)+'vw';
+f.style.top=(10+Math.random()*40)+'vh';
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1200);
+}}
+</script>
+</body>
+</html>
