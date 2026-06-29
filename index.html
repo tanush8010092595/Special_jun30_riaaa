@@ -80,48 +80,33 @@ display:none;
 margin-top:25px;
 animation:fadeIn 1s ease;
 }
+<!-- ================= ENVELOPE SCREEN ================= -->
 
-#memory img{
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
+<div id="intro">
 
-.heart{
-position:fixed;
-font-size:24px;
-animation:float 8s linear infinite;
-opacity:.7;
-z-index:1;
-}
+<div class="envelope" onclick="openLetter()">
 
-@keyframes float{
-0%{
-transform:translateY(100vh);
-}
-100%{
-transform:translateY(-120px);
-}
-}
+<div class="flap"></div>
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-</style>
-</head>
+<div class="paper">
+💌
+</div>
 
-<body>
+<div class="cover"></div>
+
+</div>
+
+<h2 class="tap">Tap To Open ❤️</h2>
+
+</div>
+
+<!-- ================= LETTER ================= -->
+
+<div id="mainCard">
 
 <div class="card">
 
-<img src="mem.jpg" class="profile">
+<img src="Mem.jpg" class="profile">
 
 <h1>🎂 Happy Birthday riyeee🩷</h1>
 
@@ -129,7 +114,7 @@ transform:translateY(0);
 
 🌷 Dear meri pyari saheli🩷 ,<br><br>
 
-Wishing You A Very Happeist Birthday Dear Riaa... ❤️🎉🎂<br><br>
+Wishing You A Very Happiest Birthday Dear Riaa... ❤️🎉🎂<br><br>
 
 U are माझ्या आयुष्यातील सगळ्यात जवळची जिवलग friend... ❤️🖇️<br><br>
 
@@ -141,21 +126,18 @@ Lifetime bondच करून घेतलाय... 😂🖇️♾️<br><br>
 
 Letter मध्ये use केलेल्या अतरंगी-सतरंगी language सारखीच आपल्या friendship च्या #Trio ची दुनिया कायम अशीच रंगीत, अतरंगी, सतरंगी आणि memories ने भरलेली असेल... 🔝🧿❤️<br><br>
 
-आणि हो... #Trio + Pooji 😜 हा chapter विसरून नाही चालणार😂🖇️♾️
+आणि हो... #Trio + Pooji 😜 हा chapter विसरून नाही चालणार😂🖇️♾️<br><br>
 
 प्रत्येक वेळी जतवणं ठीक नाही वाटत, पण कधी कधी काही bonds आपल्यासाठी काय आहेत हे सांगणं गरजेचं असत... 😅<br><br>
 
 Purely Thank You For All The Beautiful Memories Ever!!! 🤍<br><br>
 
-Once Again,<br><br>
-
 🎂 Happy Birthday Dear Riaa ❤️🎂<br><br>
 
 Stay Blessed 🌷<br>
-Keep Smiling (Laughing🤪)😊<br>
-Keep Shining ✨<br><br>
+Keep Smiling 🤪😊<br>
+Keep Shining ✨
 
-♾️💖
 </div>
 
 <button class="btn" onclick="showMemory()">
@@ -168,29 +150,254 @@ Keep Shining ✨<br><br>
 
 </div>
 
-<script>
+</div>
 
-function showMemory(){
-document.getElementById("memory").style.display="block";
+<style>
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,#ffd6e7,#fff4f8);
+overflow-x:hidden;
 }
 
-for(let i=0;i<25;i++){
+/* INTRO */
 
-let heart=document.createElement("div");
+#intro{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+transition:1s;
+}
 
-heart.className="heart";
+.tap{
+color:#ff2f72;
+animation:blink 1s infinite;
+}
 
-heart.innerHTML="💖";
+@keyframes blink{
+50%{opacity:.4;}
+}
 
-heart.style.left=Math.random()*100+"vw";
+.envelope{
+width:280px;
+height:180px;
+position:relative;
+cursor:pointer;
+animation:float 2s ease-in-out infinite;
+}
 
-heart.style.animationDuration=
-(5+Math.random()*5)+"s";
+.cover{
+position:absolute;
+bottom:0;
+width:100%;
+height:100%;
+background:#ff4f86;
+clip-path:polygon(0 100%,50% 45%,100% 100%,100% 100%,0 100%);
+border-radius:10px;
+}
 
-document.body.appendChild(heart);
+.flap{
+position:absolute;
+width:100%;
+height:100%;
+background:#ff7da3;
+clip-path:polygon(0 0,50% 60%,100% 0);
+transform-origin:top;
+transition:1s;
+z-index:5;
+border-radius:10px;
+}
+
+.paper{
+position:absolute;
+width:80%;
+height:120px;
+background:white;
+left:10%;
+top:25px;
+border-radius:10px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:50px;
+transition:1.2s;
+z-index:2;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+/* CARD */
+
+#mainCard{
+display:none;
+opacity:0;
+transform:translateY(300px) scale(.5) rotateX(90deg);
+transition:1.4s;
+}
+
+.card{
+width:90%;
+max-width:700px;
+margin:40px auto;
+padding:25px;
+background:white;
+border-radius:25px;
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+animation:pop 1.5s;
+}
+
+@keyframes pop{
+0%{
+opacity:0;
+transform:scale(.5);
+}
+100%{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.profile{
+width:150px;
+height:150px;
+border-radius:50%;
+display:block;
+margin:auto;
+border:6px solid pink;
+object-fit:cover;
+}
+
+h1{
+text-align:center;
+color:#ff2f72;
+}
+
+.message{
+font-size:18px;
+line-height:1.8;
+color:#444;
+margin-top:20px;
+}
+
+.btn{
+margin:30px auto;
+display:block;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:#ff2f72;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+#memory{
+display:none;
+margin-top:20px;
+animation:fade 1s;
+}
+
+#memory img{
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Hearts */
+
+.heart{
+position:fixed;
+font-size:24px;
+animation:rise 8s linear infinite;
+opacity:.7;
+z-index:-1;
+}
+
+@keyframes rise{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-120px);
+}
+}
+
+</style>
+
+<script>
+
+function openLetter(){
+
+document.querySelector(".flap").style.transform="rotateX(180deg)";
+
+document.querySelector(".paper").style.transform="translateY(-130px)";
+
+setTimeout(function(){
+
+document.getElementById("intro").style.opacity="0";
+document.getElementById("intro").style.transform="scale(.7)";
+
+},1200);
+
+setTimeout(function(){
+
+document.getElementById("intro").style.display="none";
+
+let card=document.getElementById("mainCard");
+
+card.style.display="block";
+
+setTimeout(function(){
+
+card.style.opacity="1";
+card.style.transform="translateY(0) scale(1) rotateX(0deg)";
+
+},100);
+
+},1800);
+
+}
+
+function showMemory(){
+
+document.getElementById("memory").style.display="block";
+
+}
+
+for(let i=0;i<30;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="💖";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(5+Math.random()*5)+"s";
+
+h.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(h);
+
 }
 
 </script>
-
-</body>
-</html>
